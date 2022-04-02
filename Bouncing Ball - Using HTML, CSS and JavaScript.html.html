@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Animated Ball</title>
+  </head>
+  <style>
+      body{
+  margin: 0;
+  background-color: #024;
+  height: 100vh;
+  position: relative;
+}
+    .ball{
+  background-color: #fff;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 0 0 15px 5px #08f;
+  margin: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+    .floor{
+  background-color: white;
+  width: 100%;
+  height: 20px;
+  position: absolute;
+  top: 500px;
+  box-shadow: 0 0 15px 5px #08f;
+}
+    .info{
+  color: white;
+  position: absolute;
+  width: 200px;
+  top: 15px;
+  left: 60px;
+}
+  </style>
+  <body>
+
+  <div class="ball">
+    <span class="info">Info</span>
+  </div>
+  <div class="floor"></div>
+
+  <script src="script.js"></script>
+  </body>
+  <script>
+      var ball    = document.querySelector('.ball'),
+    info    = document.querySelector('.info'),
+    y       = 1,
+    gravity = 1;
+
+setInterval(function(){
+
+  if(y>420){ gravity = -gravity; }
+  gravity+=1;
+  y = y + gravity;
+  ball.style.top = (y) + "px";
+  info.innerText = "Y : "+y+", G : "+ gravity;
+},50);
+  </script>
+</html>
